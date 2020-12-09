@@ -155,7 +155,7 @@ class ServiceNowAdapter extends EventEmitter {
      * get() takes a callback function.
      */
 
-this.ServiceNowConnector.get({ serviceNowTable: 'change_request' }, (data, error) => {
+connector.get({ serviceNowTable: 'change_request' }, (data, error) => {
     if (error) {
       console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
     }
@@ -180,7 +180,7 @@ this.ServiceNowConnector.get({ serviceNowTable: 'change_request' }, (data, error
      * post() takes a callback function.
      */
 
-     this.ServiceNowConnector.post({ serviceNowTable: 'change_request' }, (data, error) => {
+     connector.post({ serviceNowTable: 'change_request' }, (data, error) => {
     if (error) {
       console.error(`\nError returned from POST request:\n${JSON.stringify(error)}`);
     }
