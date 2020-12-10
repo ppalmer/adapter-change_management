@@ -16,8 +16,6 @@ const ServiceNowConnector = require(path.join(__dirname, '/connector.js'));
  */
 const EventEmitter = require('events').EventEmitter;
 
-const connector = new ServiceNowConnector(options);
-
 /**
  * The ServiceNowAdapter class.
  *
