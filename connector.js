@@ -169,7 +169,7 @@ sendRequest(callOptions, callback) {
       pass: this.options.password,
     },
     baseUrl: this.options.url,
-    uri: this.options.uri,
+    uri: uri,
   };
 
   request(requestOptions, (error, response, body) => {

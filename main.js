@@ -116,6 +116,7 @@ healthcheck(callback) {
       */
       this.emitOffline();
       log.error(`${this.id} is offline with the following error: ${error}`);
+      console.error(`${this.id} is offline with the following error: ${error}`);
       if(callback) {
           callback(result, error);
       }
@@ -133,6 +134,7 @@ healthcheck(callback) {
       */
       this.emitOnline();
       log.debug('Service Now is online');
+      console.info('Service Now is online');
       if(callback){
           callback(result, error);
       }
