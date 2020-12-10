@@ -115,9 +115,9 @@ healthcheck(callback) {
       * for the callback's errorMessage parameter.
       */
       this.emitOffline();
-      log.error(`${this.id} is offline`);
+      log.error(`${this.id} is offline with the following error: ${error}`);
       if(callback) {
-          this.callback(result, error);
+          callback(result, error);
       }
 
    } else {
@@ -134,7 +134,7 @@ healthcheck(callback) {
       this.emitOnline();
       log.debug('Service Now is online');
       if(callback){
-          this.callback(result, error);
+          callback(result, error);
       }
    }
  });
