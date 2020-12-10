@@ -132,14 +132,15 @@ healthcheck(callback) {
       * parameter as an argument for the callback function's
       * responseData parameter.
       */
-      this.emitOnline();
       log.debug('Service Now is online');
       console.info('Service Now is online');
       if(callback){
           callback(result, error);
       }
+      this.emitOnline();
    }
  });
+ this.emitOnline();
 }
 
   /**
