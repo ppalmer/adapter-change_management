@@ -207,11 +207,10 @@ healthcheck(callback) {
     let returned_object = null;
 
     if(data.body) {  
-        console.log(`CHANGE TICKET BODY: ${data.body}`); 
-        console.log(`CHANGE TICKET RESULT: ${data.body[0]}`);   
-        change_body = data.body;
-        change_result = change_body.result;
-        console.log(`CHANGE TICKET RESULT: ${change_result[0]}`);
+        console.log(`CHANGE TICKET BODY: ${data.body}`);   
+        //change_body = data.body;
+        //change_result = change_body.result;
+        console.log(`CHANGE TICKET RESULT: ${data.body.result[0]}`);
         returned_object = {change_ticket_number: change_result[0].number,
                            active: change_result[0].active,
                            priority: change_result[0].priority,
