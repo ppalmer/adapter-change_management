@@ -217,7 +217,7 @@ healthcheck(callback) {
                            work_start: change_result.work_start,
                            work_end: change_result.work_end,
                            change_ticket_key: change_result.sys_id};
-        return returned_object;
+        callback(returned_object, error);
     }
   });
   }
@@ -243,6 +243,8 @@ healthcheck(callback) {
     if (error) {
       console.error(`\nError returned from POST request:\n${JSON.stringify(error)}`);
     }
+    console.log(`\nResponse returned from POST request:\n${JSON.stringify(data)}`)
+    
     let change_ticket = null;
     let change_result = null;
     let returned_object = null;
@@ -258,9 +260,8 @@ healthcheck(callback) {
                            work_start: change_result.work_start,
                            work_end: change_result.work_end,
                            change_ticket_key: change_result.sys_id};
-        return returned_object;
+        callback(returned_object, error);
     }
-    console.log(`\nResponse returned from POST request:\n${JSON.stringify(data)}`)
   });
   }
 }
