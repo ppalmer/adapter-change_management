@@ -208,13 +208,13 @@ healthcheck(callback) {
         console.log(`CHANGE TICKET BODY: ${data.body}`);   
         const change_body = JSON.parse(data.body);
         const change_result = change_body.result;
-        returned_object = {change_ticket_number: change_result[0].number,
+        returned_object = [{change_ticket_number: change_result[0].number,
                            active: change_result[0].active,
                            priority: change_result[0].priority,
                            description: change_result[0].description,
                            work_start: change_result[0].work_start,
                            work_end: change_result[0].work_end,
-                           change_ticket_key: change_result[0].sys_id};
+                           change_ticket_key: change_result[0].sys_id}];
     }
     callback(returned_object, error);
   });
