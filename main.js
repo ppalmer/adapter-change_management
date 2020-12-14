@@ -202,21 +202,21 @@ healthcheck(callback) {
       console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
     }
     console.log(`\nResponse returned from GET request:\n${JSON.stringify(data)}`)
-    let change_ticket = null;
+    let change_ticket = JSON.parse(data);
+    let change_body = null;
     let change_result = null;
     let returned_object = null;
 
-    if(JSON.parse(data.body)) {
-        change_ticket = JSON.parse(data.body);
-        change_result = change_ticket.result;
-        
-        returned_object = {change_ticket_number: change_result.number,
-                           active: change_result.active,
-                           priority: change_result.priority,
-                           description: change_result.description,
-                           work_start: change_result.work_start,
-                           work_end: change_result.work_end,
-                           change_ticket_key: change_result.sys_id};
+    if(change_ticket) {    
+        change_body = change_ticket.body;
+        change_result = change_body.result;
+        returned_object = {change_ticket_number: change_result[0].number,
+                           active: change_result[0].active,
+                           priority: change_result[0].priority,
+                           description: change_result[0].description,
+                           work_start: change_result[0].work_start,
+                           work_end: change_result[0].work_end,
+                           change_ticket_key: change_result[0].sys_id};
         callback(returned_object, error);
     }
   });
@@ -245,21 +245,21 @@ healthcheck(callback) {
     }
     console.log(`\nResponse returned from POST request:\n${JSON.stringify(data)}`)
     
-    let change_ticket = null;
+    let change_ticket = JSON.parse(data);
+    let change_body = null;
     let change_result = null;
     let returned_object = null;
 
-    if(JSON.parse(data.body)) {
-        change_ticket = JSON.parse(data.body);
-        change_result = change_ticket.result;
-        
-        returned_object = {change_ticket_number: change_result.number,
-                           active: change_result.active,
-                           priority: change_result.priority,
-                           description: change_result.description,
-                           work_start: change_result.work_start,
-                           work_end: change_result.work_end,
-                           change_ticket_key: change_result.sys_id};
+    if(change_ticket) {    
+        change_body = change_ticket.body;
+        change_result = change_body.result;
+        returned_object = {change_ticket_number: change_result[0].number,
+                           active: change_result[0].active,
+                           priority: change_result[0].priority,
+                           description: change_result[0].description,
+                           work_start: change_result[0].work_start,
+                           work_end: change_result[0].work_end,
+                           change_ticket_key: change_result[0].sys_id};
         callback(returned_object, error);
     }
   });
