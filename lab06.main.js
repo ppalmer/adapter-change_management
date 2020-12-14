@@ -202,23 +202,6 @@ healthcheck(callback) {
       console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
     }
     console.log(`\nResponse returned from GET request:\n${JSON.stringify(data)}`)
-    let change_ticket = null;
-    let change_result = null;
-    let returned_object = null;
-
-    if(JSON.parse(data.body)) {
-        change_ticket = JSON.parse(data.body);
-        change_result = change_ticket.result;
-        
-        returned_object = {change_ticket_number: change_result.number,
-                           active: change_result.active,
-                           priority: change_result.priority,
-                           description: change_result.description,
-                           work_start: change_result.work_start,
-                           work_end: change_result.work_end,
-                           change_ticket_key: change_result.sys_id};
-        return returned_object;
-    }
   });
   }
 
@@ -242,23 +225,6 @@ healthcheck(callback) {
      this.connector.post({ serviceNowTable: 'change_request' }, (data, error) => {
     if (error) {
       console.error(`\nError returned from POST request:\n${JSON.stringify(error)}`);
-    }
-    let change_ticket = null;
-    let change_result = null;
-    let returned_object = null;
-
-    if(JSON.parse(data.body)) {
-        change_ticket = JSON.parse(data.body);
-        change_result = change_ticket.result;
-        
-        returned_object = {change_ticket_number: change_result.number,
-                           active: change_result.active,
-                           priority: change_result.priority,
-                           description: change_result.description,
-                           work_start: change_result.work_start,
-                           work_end: change_result.work_end,
-                           change_ticket_key: change_result.sys_id};
-        return returned_object;
     }
     console.log(`\nResponse returned from POST request:\n${JSON.stringify(data)}`)
   });
