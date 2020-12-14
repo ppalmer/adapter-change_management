@@ -201,15 +201,14 @@ healthcheck(callback) {
     if (error) {
       console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
     }
-    console.log(`\nResponse returned from GET request:\n${JSON.stringify(data)}`)
-    const change_ticket = JSON.parse(data);
+    console.log(`\nResponse returned from GET request:\n${JSON.stringify(data)}`);
     let change_body = null;
     let change_result = null;
     let returned_object = null;
 
-    if(change_ticket.body) {  
-        console.log(`change ticket body: ${change_ticket}`);  
-        change_body = change_ticket.body;
+    if(data.body) {  
+        console.log(`change ticket body: ${data.body}`);  
+        change_body = data.body;
         change_result = change_body.result;
         returned_object = {change_ticket_number: change_result[0].number,
                            active: change_result[0].active,
@@ -218,8 +217,8 @@ healthcheck(callback) {
                            work_start: change_result[0].work_start,
                            work_end: change_result[0].work_end,
                            change_ticket_key: change_result[0].sys_id};
-        callback(returned_object, error);
     }
+    callback(returned_object, error);
   });
   }
 
@@ -245,14 +244,13 @@ healthcheck(callback) {
       console.error(`\nError returned from POST request:\n${JSON.stringify(error)}`);
     }
     console.log(`\nResponse returned from POST request:\n${JSON.stringify(data)}`)
-    
-    let change_ticket = JSON.parse(data);
+
     let change_body = null;
     let change_result = null;
     let returned_object = null;
 
-    if(change_ticket.body) {    
-        change_body = change_ticket.body;
+    if(data.body) {    
+        change_body = data.body;
         change_result = change_body.result;
         returned_object = {change_ticket_number: change_result[0].number,
                            active: change_result[0].active,
@@ -261,8 +259,8 @@ healthcheck(callback) {
                            work_start: change_result[0].work_start,
                            work_end: change_result[0].work_end,
                            change_ticket_key: change_result[0].sys_id};
-        callback(returned_object, error);
     }
+    callback(returned_object, error);
   });
   }
 }
