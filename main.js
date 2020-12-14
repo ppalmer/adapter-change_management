@@ -211,7 +211,7 @@ healthcheck(callback) {
         const change_body = JSON.parse(data.body);
         //change_body = data.body;
         //change_result = change_body.result;
-        console.log(`CHANGE TICKET RESULT: ${change_body.result}`);
+        console.log(`CHANGE TICKET RESULT: ${change_body["result"]}`);
         returned_object = {change_ticket_number: change_result[0].number,
                            active: change_result[0].active,
                            priority: change_result[0].priority,
