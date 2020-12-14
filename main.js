@@ -207,7 +207,8 @@ healthcheck(callback) {
     let change_result = null;
     let returned_object = null;
 
-    if(change_ticket) {    
+    if(change_ticket.body) {  
+        console.log(`change ticket body: ${change_ticket}`);  
         change_body = change_ticket.body;
         change_result = change_body.result;
         returned_object = {change_ticket_number: change_result[0].number,
@@ -250,7 +251,7 @@ healthcheck(callback) {
     let change_result = null;
     let returned_object = null;
 
-    if(change_ticket) {    
+    if(change_ticket.body) {    
         change_body = change_ticket.body;
         change_result = change_body.result;
         returned_object = {change_ticket_number: change_result[0].number,
