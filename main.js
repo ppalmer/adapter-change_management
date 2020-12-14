@@ -210,6 +210,7 @@ healthcheck(callback) {
         console.log(`change ticket body: ${data.body}`);  
         change_body = data.body;
         change_result = change_body.result;
+        console.log(`change ticket body: ${change_result[0]}`);
         returned_object = {change_ticket_number: change_result[0].number,
                            active: change_result[0].active,
                            priority: change_result[0].priority,
