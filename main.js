@@ -202,7 +202,7 @@ healthcheck(callback) {
       console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
     }
     console.log(`\nResponse returned from GET request:\n${JSON.stringify(data)}`)
-    let change_ticket = JSON.parse(data);
+    const change_ticket = JSON.parse(data);
     let change_body = null;
     let change_result = null;
     let returned_object = null;
