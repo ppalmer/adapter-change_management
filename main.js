@@ -202,16 +202,12 @@ healthcheck(callback) {
       console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
     }
     console.log(`\nResponse returned from GET request:\n${JSON.stringify(data)}`);
-    //let change_body = null;
-    let change_result = null;
     let returned_object = null;
 
     if(data.body) {  
         console.log(`CHANGE TICKET BODY: ${data.body}`);   
         const change_body = JSON.parse(data.body);
-        //change_body = data.body;
         const change_result = change_body.result;
-        console.log(`CHANGE TICKET RESULT: ${change_result}`);
         returned_object = {change_ticket_number: change_result[0].number,
                            active: change_result[0].active,
                            priority: change_result[0].priority,
@@ -246,14 +242,12 @@ healthcheck(callback) {
       console.error(`\nError returned from POST request:\n${JSON.stringify(error)}`);
     }
     console.log(`\nResponse returned from POST request:\n${JSON.stringify(data)}`)
-
-    let change_body = null;
-    let change_result = null;
     let returned_object = null;
 
     if(data.body) {    
-        change_body = data.body;
-        change_result = change_body.result;
+        console.log(`CHANGE TICKET BODY: ${data.body}`);   
+        const change_body = JSON.parse(data.body);
+        const change_result = change_body.result;
         returned_object = {change_ticket_number: change_result[0].number,
                            active: change_result[0].active,
                            priority: change_result[0].priority,
