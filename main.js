@@ -208,7 +208,7 @@ healthcheck(callback) {
 
     if(data.body) {  
         console.log(`CHANGE TICKET BODY: ${data.body}`); 
-        console.log(`CHANGE TICKET RESULT: ${data.body.result}`);   
+        console.log(`CHANGE TICKET RESULT: ${data.body[0]}`);   
         change_body = data.body;
         change_result = change_body.result;
         console.log(`CHANGE TICKET RESULT: ${change_result[0]}`);
